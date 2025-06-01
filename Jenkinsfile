@@ -24,7 +24,7 @@ pipeline {
                 CIMON_SECRET = credentials("cimon-secret")
             }
             steps {
-                sh '/ymp/cimon agent start-background'
+                sh '/tmp/cimon agent start-background'
             }
         }
 
