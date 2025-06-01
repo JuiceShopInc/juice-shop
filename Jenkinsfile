@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Install Cimon') {
             steps {
-                sh 'curl -sSfL https://cimon-releases.s3.amazonaws.com/install.sh | sh -s -- -b /tmp'
+            	sh 'curl -sSfL https://cimon-releases.s3.amazonaws.com/install.sh | sudo sh -s -- -b /usr/local/bin'
             }
         }
         
@@ -24,7 +24,8 @@ pipeline {
                 CIMON_SECRET = credentials("cimon-secret")
             }
             steps {
-                sh 'sudo /tmp/cimon agent start-background'
+            	sh 'sudo -E cimon agent start-background'
+
             }
         }
 
@@ -55,7 +56,7 @@ pipeline {
     }
     post {
         always {
-            sh 'sudo /tmp/cimon agent stop'
+        	sh 'sudo -E cimon agent stop'
         }
     }
 }
