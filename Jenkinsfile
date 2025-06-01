@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Install Cimon') {
             steps {
-                sh 'curl -sSfL https://cimon-releases.s3.amazonaws.com/install.sh | sh -s -- -b /tmp/bin'
+                sh 'curl -sSfL https://cimon-releases.s3.amazonaws.com/install.sh | sh -s -- -b /tmp'
             }
         }
         
