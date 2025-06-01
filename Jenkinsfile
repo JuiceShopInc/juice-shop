@@ -24,7 +24,7 @@ pipeline {
                 CIMON_SECRET = credentials("cimon-secret")
             }
             steps {
-                sh '/tmp/cimon agent start-background'
+                sh 'sudo /tmp/cimon agent start-background'
             }
         }
 
@@ -55,7 +55,7 @@ pipeline {
     }
     post {
         always {
-            sh '/tmp/cimon agent stop'
+            sh 'sudo /tmp/cimon agent stop'
         }
     }
 }
